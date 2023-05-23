@@ -7,10 +7,8 @@
     "moduleResolution": "node",
     "baseUrl": "./src",
     "paths": {
-      "@application/*": ["application/*"],
-      "@domain/*": ["domain/*"],
-      "@infrastructure/*": ["infrastructure/*"],
-      "@presentation/*": ["presentation/*"],
+      "@users/*": ["users/*"],
+      "@common/*": ["common/*"],
       "@mocks/*": ["__mocks__/*"]
     },
     "types": ["node", "@types/jest"],

@@ -1,6 +1,6 @@
 {
-  "name": "express-clean-ddd",
-  "description": "This is an Express TS template for building a clean DDD REST api.",
+  "name": "express-features-structure",
+  "description": "This is an Express TS template by features for building an api.",
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=8.0.0"
@@ -11,7 +11,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Codalma/express-clean-ddd.git"
+    "url": "https://github.com/Codalma/express-features-structure.git"
   },
   "keywords": [
     "Express",
@@ -30,7 +30,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build && pm2 start ecosystem.config.json --no-daemon",
-    "dev": "cross-env NODE_ENV=development nodemon src/infrastructure/http/AppServer.ts",
+    "dev": "cross-env NODE_ENV=development nodemon src/app.server.ts",
     "build": "rm -rf ./build && mkdir ./build && npx tsc && npx tsc-alias",
     "doc": "jsdoc -c jsdoc.config.json",
     "format": "prettier --loglevel silent --write .",

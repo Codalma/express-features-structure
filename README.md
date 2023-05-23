@@ -1,11 +1,22 @@
 # Express TS template with a structure by features.
 
+## Table of Contents
+- [Description](#description),
+- [Prerequisites](#prerequisites),
+- [Features](#features),
+- [Commands](#commands),
+- [Structure](#structure),
+- [Error handling](#error-handling),
+- [Logging](#logging),
+- [Environmental variables](#environment-variables),
+- [Inspirations](#inspirations).
+
 ## Description
 Hello there ✌️
  
-This project originally started as a template for my own API projects, where I wanted to implement a structure by features.
+This project originally started as a template for my own API projects where I wanted to implement a structure by features.
 
-Now, I'm excited to share it with you, hoping that it may be of help like others developers inspired me. 🚀
+Now, I'm excited to share it with you, hoping that it may be of help like others developers inspired me.
 
 Please keep in mind that this project is a continuous work in progress, and I'm constantly seeking ways to improve and refine it.
 
@@ -13,15 +24,6 @@ Your feedback and contributions are welcome and appreciated. 🙏
 
 Thank you for considering my template.
 
-## Table of Contents
-- [Prerequisites](#prerequisites)
-- [Features](#features)
-- [Commands](#commands)
-- [Structure](#structure)
-- [Error handling](#error-handling)
-- [Logging](#logging)
-- [Environmental variables](#environment-variables)
-- [Inspirations](#inspirations)
 
 ## Prerequisites
 - Node.js (>=18.0.0),
@@ -109,30 +111,33 @@ yarn prettier:fix
 ## Structure
 ```
 src/
-|-- application/      # Contains the use cases and business logic of the application
-|   |-- interfaces/     # Interfaces for use cases and application services
-|   |-- mappers/        # Mappers to convert data between different layers
-|   |-- services/       # Application services for business logic
-|   |-- useCases/       # Use cases (business scenarios)
-|-- domain/           # Contains entities, interfaces, exceptions, repositories, and domain services
-|   |-- entities/       # Domain entities
-|   |-- exceptions/     # Domain-specific exceptions
-|   |-- interfaces/     # Domain interfaces
-|   |-- repositories/   # Repository interfaces (data access)
-|   |-- services/       # Domain services
-|-- infrastructure/   # Contains infrastructure-related code and implementations
-|   |-- configs/        # Configuration files
-|   |-- http/           # HTTP-related components (controllers, middleware, etc.)
-|   |-- interfaces/     # Interfaces for infrastructure components
-|   |-- repositories/   # Repository implementations (data access)
-|   |-- services/       # Infrastructure services
-|   |-- libraries/      # Third-party libraries and integrations
-|   |-- utils/          # Utility functions and modules
-|-- presentation/     # Contains presentation layer components
-|   |-- controllers/    # API controllers
-|   |-- interfaces/     # Interfaces for presentation layer components
-|   |-- middlewares/    # Express middlewares
-|   |-- routes/         # API routes
+|-- __tests__/               # Unit tests or integration tests for the application
+|-- __mocks__/               # Mock files or modules for testing purposes
+
+|-- common/                  # Contains common application-level files
+|   |-- configs/             # Configuration files for the application
+|   |-- controllers/         # Controllers for handling requests and responses
+|   |-- exceptions/          # Custom exception classes
+|   |-- interfaces/          # Interfaces for use cases and application services
+|   |-- libraries/           # External libraries or helper modules
+|   |-- middlewares/         # Middleware functions for request handling
+|   |-- models/              # Data models or schemas
+|   |-- services/            # Application services or use cases
+|   |-- utils/               # Utility functions or helper modules
+
+|   |-- App.router            # Outer application setup or configuration
+|   |-- app.js               # Main application setup
+
+|-- users/                   # Contains user-related features
+|   |-- controllers/         # Controllers for handling user-related requests and responses
+|   |-- interfaces/          # Interfaces specific to user-related functionality
+|   |-- mappers/             # Data mappers for mapping data between layers
+|   |-- repositories/        # Data repositories for accessing user-related data
+|   |-- routes/              # Routes specific to user-related functionality
+|   |-- services/            # Services or use cases related to users
+|   |-- utils/               # Utility functions or helper modules specific to users
+
+|-- app.server               # Main server file for starting the application                  
 ```
 
 ## Error Handling
