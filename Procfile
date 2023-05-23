@@ -1,0 +1,1 @@
+web: node build/infrastructure/http/AppServer.js

@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  api:
+    image: ${DEV_IMAGE_NAME} # Specify the image name
+    container_name: ${DEV_CONTAINER_NAME} # Set the container name
+    build:
+      context: . # Build context is the current directory
+      target: dev # Build target is 'dev'
+    ports:
+      - ${DEV_PORT}:${DEV_EXPOSED_PORT} # Map host port to container port
+    environment:
+      - NODE_ENV=development # Set environment variable NODE_ENV to 'development'
+    volumes:
+      - .:/usr/src/app/api # Mount the current directory to /usr/src/app/api in the container
+    restart: on-failure # Restart the container on failure
+    stop_signal: SIGINT # Signal to send to the container when stopping
+    stop_grace_period: 30s # Time to wait for the container to stop gracefully

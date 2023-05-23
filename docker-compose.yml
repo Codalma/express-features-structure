@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  api:
+    image: ${IMAGE_NAME} # Specify the image name
+    container_name: ${CONTAINER_NAME} # Set the container name
+    build:
+      context: . # Build context is the current directory
+    env_file:
+      - .env # Load environment variables from the .env file

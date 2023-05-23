@@ -1,0 +1,57 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo 'Styling, testing, and building your project before committing'
+
+# Run Prettier check silently
+echo 'Running Prettier check...'
+npm run format ||
+(
+    echo 'Prettier Failed.';
+    false;
+) || exit 1
+echo 'Prettier check passed successfully.'
+echo
+
+# Check Prettier standards
+echo 'Checking Prettier standards...'
+npm run check-format ||
+(
+    echo 'Prettier Check Failed. Run npm run format, add changes, and try committing again.';
+    false;
+) || exit 1
+echo 'Prettier standards check passed successfully.'
+echo
+
+# Check ESLint Standards
+echo 'Checking ESLint standards...'
+npm run check-lint ||
+(
+    echo 'ESLint Check Failed. Make the required changes listed above, add changes, and try committing again.';
+    false;
+) || exit 1
+echo 'ESLint standards check passed successfully.'
+echo
+
+# Check tsconfig standards
+echo 'Checking tsconfig standards...'
+npm run check-types ||
+(
+    echo 'Types check failed. Make the required changes listed above.';
+    false;
+) || exit 1
+echo 'tsconfig standards check passed successfully.'
+echo
+
+# If everything passes... Now we can build
+echo 'All checks passed. Building now...'
+npm run build ||
+(
+    echo 'Your build failed. View the errors above to see why.';
+    false;
+) || exit 1
+echo 'Build succeeded.'
+echo
+
+# If everything passes... Now we can commit
+echo 'All checks passed. Commit is possible now.'
